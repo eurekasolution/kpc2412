@@ -36,3 +36,10 @@ LAST : 힣
 테스트 mat mother motd 010-123a-1234 010-1234-1234
 동해물과 백두산이 마르고 닳도록
 테스트 mat mother motd 010-123a-1234 010-1234-1234
+
+
+쉬고 오셔서 다음 사이트에 접속해 봅니다.
+강의자 컴퓨터 내용의 실시간 배포
+
+https://github.com/eurekasolution/kpc2412
+
