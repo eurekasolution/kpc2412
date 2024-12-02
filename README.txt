@@ -67,3 +67,10 @@ INSERT INTO first (id, name) VALUES
 ('user10', '강감찬');
 
 ALTER DATABASE secure CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+테이블이 이미 만들어져 있으므로, 테이블 지우고
+drop table first;
+테이블을 다시 만들면 한글깨짐 해결됌
+
+
+https://www.security.org/how-secure-is-my-password/
