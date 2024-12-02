@@ -43,3 +43,25 @@ LAST : 힣
 
 https://github.com/eurekasolution/kpc2412
 
+DB접속 
+
+localhost/phpmyadmin
+
+ㅁ
+CREATE TABLE first (
+    id VARCHAR(20) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO first (id, name) VALUES
+('user1', '세종대왕'),
+('user2', '이순신'),
+('user3', '신사임당'),
+('user4', '율곡이이'),
+('user5', '정약용'),
+('user6', '김홍도'),
+('user7', '장영실'),
+('user8', '황희'),
+('user9', '허준'),
+('user10', '강감찬');
