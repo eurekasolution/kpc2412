@@ -106,6 +106,8 @@ javascript:alert(document.cookie);
        1   2     3   0
 
 w3schools.com
+    > Get Started 의 Try it Yourself를 복사해
+        a.html 만들고 코드 수정
 
 =====================================================
                     Day 2
