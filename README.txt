@@ -47,7 +47,7 @@ DB접속
 
 localhost/phpmyadmin
 
-ㅁ
+
 CREATE TABLE first (
     id VARCHAR(20) NOT NULL,
     name VARCHAR(20) NOT NULL,
@@ -74,3 +74,23 @@ drop table first;
 
 
 https://www.security.org/how-secure-is-my-password/
+
+
+$id = "test";
+        ' or 2>1 limit 1, 1 -- 
+$pass = "1111";
+
+$sql = "select * from users where id='' or 2>1 limit 1, 1 -- test' and pass='1111' ";
+
+javascript:alert(document.cookie);
+
+1.2.3.4
+
+    0001 0010 0011 0100
+  & 1111 1111 1111 0000
+       1   2     3   0
+
+
+w3schools.com
+
+
