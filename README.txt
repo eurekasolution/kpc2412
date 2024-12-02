@@ -65,3 +65,5 @@ INSERT INTO first (id, name) VALUES
 ('user8', '황희'),
 ('user9', '허준'),
 ('user10', '강감찬');
+
+ALTER DATABASE secure CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
