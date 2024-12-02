@@ -1,0 +1,11 @@
+create table test (
+    name    varchar(20),
+    id      varchar(20),
+    age     integer
+);
+
+insert into test (name, id, age) values('홍길동', 'hong', '12');
+
+홍길동','hong','12
+김유신','kim','34
+세종','lee','54
