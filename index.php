@@ -36,6 +36,27 @@
 <body>
     <?php
         include "menu.php";
+
+        $ip = $_SERVER["REMOTE_ADDR"];
+        $ip1 = rand(1, 254);
+        $ip2 = rand(1, 254);
+        $ip3 = rand(1, 254);
+        $ip4 = rand(1, 254);
+        $ip = "$ip1.$ip2.$ip3.$ip4";
+        $q = $_SERVER["QUERY_STRING"];
+        echo "ip = $ip<br>";
+        echo "q = $q<br>";
+
+        if(isset($_SESSION["kpcid"]))
+            $userid = $_SESSION["kpcid"];
+        else
+            $userid = "";
+
+        $sql = "insert into log (ip, id, work, time) 
+                    values ('$ip', '$userid', '$q', now())";
+        $result = mysqli_query($conn, $sql);
+
+
     ?>
         <div class="container mt-1">
     <?php
