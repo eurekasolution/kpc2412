@@ -2,11 +2,16 @@
     $id = $_POST["id"];
     $pass = $_POST["pass"];
 
-    if($id == "test" and $pass=="1111")
+    $sql = "select * from users where id='$id' and pass='$pass'";
+    $result = mysqli_query($conn, $sql);
+    $data = mysqli_fetch_array($result);
+
+    //if($id == "test" and $pass=="1111")
+    if($data)
     {
         $_SESSION["kpcid"] = $id;
-        $_SESSION["kpcname"] = "테스터";
-        $msg = "반갑습니다."; 
+        $_SESSION["kpcname"] = $data["name"];
+        $msg = "$data[name]"."님 반갑습니다."; 
     }else
     {
         $msg = "아이디와 비밀번호를 확인하세요.";
