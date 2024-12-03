@@ -254,6 +254,12 @@ CREATE TABLE users (
     name VARCHAR(100) NOT NULL         -- 사람이름 저장
 );
 
+insert into users (id, pass, name) values('test', 'abcd', '테스터');
+insert into users (id, pass, name) values('hong', 'cdef', '홍길동');
+insert into users (id, pass, name) values('admin', 'abcd', '관리자');
+insert into users (id, pass, name) values('kim', 'cdef', '김개똥');
+
+
 =====================================================
                     Day 3
 =====================================================
