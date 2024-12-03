@@ -259,7 +259,28 @@ insert into users (id, pass, name) values('hong', 'cdef', '홍길동');
 insert into users (id, pass, name) values('admin', 'abcd', '관리자');
 insert into users (id, pass, name) values('kim', 'cdef', '김개똥');
 
+for($i=1; $i<=100000; $i++)
+{
+    connect();
+    insert();
+    closeDB();
+}
 
+connect();
+for($i=1; $i<=100000; $i++)
+{
+    insert(); 
+}
+closeDB();
+
+my_family_count : snake ... linux, c
+myFamilyCount  : Camel .. java
+
+변수 : 소문자 첫글자마다 대문자로 표기
+myFamily
+myFamily()
+
+MyFamily 
 =====================================================
                     Day 3
 =====================================================

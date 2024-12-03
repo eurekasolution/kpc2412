@@ -49,16 +49,35 @@
         }else
         {
             ?>
-            <form method="post" action="index.php?cmd=login">
+            <script>
+                function checkError()
+                {
+                    //var id = document.getElementById('id');
+                    let id = document.querySelector('#id');
+                    //let id = $('#id');
+                    
+                    // var regexp = /^[가-힣]{2,4}$/;
+
+                    //var regexp = /[\-,'"]/;
+
+                    //if(regexp.test(id.value))
+                    //{
+                    //    alert('특수문자는 안돼!!');
+                    //    return false;
+                    //}
+                    
+                }
+            </script>
+            <form method="post" action="index.php?cmd=login" onSubmit="return checkError()">
             <div class="row">
                 <div class="col-4 colLine"></div>
                 <div class="col-1 text-end colLine">ID</div>
                 <div class="col colLine">
-                    <input type="text" class="form-control" name="id" placeholder="아이디입력">
+                    <input type="text" class="form-control" name="id" id="id" placeholder="아이디입력">
                 </div>
                 <div class="col-1 text-end colLine">PW</div>
                 <div class="col colLine">
-                    <input type="password" class="form-control" name="pass" placeholder="비번입력">
+                    <input type="password" class="form-control" name="pass" id="pass" placeholder="비번입력">
                 </div>
                 <div class="col colLine text-center">
                     <button type="submit" class="btn btn-primary form-control">로그인</button>
