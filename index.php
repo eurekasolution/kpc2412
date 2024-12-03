@@ -33,20 +33,30 @@
 <body>
     <?php
         include "menu.php";
-
+    ?>
+        <div class="container mt-1">
+    <?php
         if(isset($_SESSION["kpcid"]))
         {
-            echo "로그아웃버튼";
+            ?>
+            <div class="row">
+                <div class="col colLine text-end">
+                    <?php echo $_SESSION["kpcname"] ?>
+                    <button type="button" class="btn btn-primary" onClick="location.href='index.php?cmd=logout'">로그아웃</button>
+                </div>
+            </div>
+            <?php
         }else
         {
             ?>
             <form method="post" action="index.php?cmd=login">
             <div class="row">
-                <div class="col-2 colLine">ID</div>
+                <div class="col-4 colLine"></div>
+                <div class="col-1 text-end colLine">ID</div>
                 <div class="col colLine">
                     <input type="text" class="form-control" name="id" placeholder="아이디입력">
                 </div>
-                <div class="col-2 colLine">PW</div>
+                <div class="col-1 text-end colLine">PW</div>
                 <div class="col colLine">
                     <input type="password" class="form-control" name="pass" placeholder="비번입력">
                 </div>
@@ -62,8 +72,8 @@
 
 
     <!-- Main Content -->
-    <div class="container mt-5">
+
         <?php include $fileToInclude; ?>
-    </div>
+    </div> <!-- container -->
 </body>
 </html>
