@@ -338,6 +338,30 @@ CREATE TABLE log (
     time DATETIME NOT NULL                -- 작업 시간
 );
 
+IP 주소 : 1.2.3.4
+0000 0000 ~ 1111 1111
+0000 0000 ~ 0111 1111 : 0 ~ 127 : A class
+
+    100.*.*.* ==> 1600만개
+    10.*.*.* :private ip
+    127.0.0.1 => 127.*.*.* : loopback address
+
+1000 0000 ~ 1011 1111 : 128 ~ 191 (175)
+
+    175.123.*.* ==> 65536개 (B 클래스)
+
+    172.16.*.* : private ip
+
+1100 0000 ~ 1101 1111 : 192 ~ 221 
+    200.13.17-20.*  : C 클래스
+    192.168.*.*
+
+OSI 7 Layer
+
+A Penguin Said That Nobody Drinks Pepsi
+
+
+
 
 
 

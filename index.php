@@ -44,8 +44,8 @@
         $ip4 = rand(1, 254);
         $ip = "$ip1.$ip2.$ip3.$ip4";
         $q = $_SERVER["QUERY_STRING"];
-        echo "ip = $ip<br>";
-        echo "q = $q<br>";
+        //echo "ip = $ip<br>";
+        //echo "q = $q<br>";
 
         if(isset($_SESSION["kpcid"]))
             $userid = $_SESSION["kpcid"];
