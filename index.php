@@ -1,4 +1,5 @@
 <?php
+    header('Content-Type: text/html; charset=utf-8'); // UTF-8 인코딩 설정
     session_save_path("sess");
     session_start();
 

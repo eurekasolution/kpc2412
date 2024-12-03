@@ -18,7 +18,7 @@
                             <li><a class="dropdown-item" href="index.php?cmd=xss">XSS</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=board">게시판</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=brute_force">Brute Force</a></li>
-                            <li><a class="dropdown-item" href="index.php?cmd=web_shell">Web Shell</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=webshell">Web Shell</a></li>
                         </ul>
                     </li>
                     <!-- 메뉴2 Dropdown -->

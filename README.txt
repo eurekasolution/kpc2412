@@ -281,6 +281,46 @@ myFamily
 myFamily()
 
 MyFamily 
+
+HTTP Status Code / Error Code
+
+1xx : Trying
+2xx : OK
+3xx : Redirect Error, Temporary Error
+4xx : Client Error, Permanent Error
+5xx : Server Error
+6xx : Global Error
+
+enum { Trying = 100, Ringing = 180, BadRequest=400, Unauth, Payment, Forbidden, NotFound, MethodNotAllowed, }
+
+download burp suite
+
+Q:
+webshell.php 파일을 만들고 싶어.
+
+상단에 
+<div class="row">
+   <div class="col-2 colLine text-end">명령</div>
+   <div class="col colLine text-end">
+      <input type="text" class="form-control" name="command" placeholder="명령어 입력">
+   </div>
+   <div class="col-2 colLine ">실행버튼</div>
+</div>
+
+하단에는 $command가 있는 경우에는 이 실행 결과를 
+<div class="row">
+   <div class="col colLine">
+        <textarea class="form-control" rows="10">여기에 결과 출력</textarea>
+   </div>
+</div>
+
+Q:
+그런데 이 코드는 이미 index.php에서 webshell을 include할 거야.
+그래서 HTML 헤더는 필요없어.
+webshell.php는 index.php에서 이미 container안에 포함되기만 하니까,
+불필요한 코드를 제거해 줘.
+
+
 =====================================================
                     Day 3
 =====================================================
