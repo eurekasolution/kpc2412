@@ -227,6 +227,33 @@ $cmd 값을 확인한 후 $cmd값이 없으면 include "init.php"; 하고
 $cmd가 있으면 include "$cmd.php"; 형태로 코드를 만들어 줘.
 
 javascript:alert(document.cookie);
+
+
+users 테이블
+
+create table users (
+    idx     integer auto_increament primary key,
+    id      varchar(20) unique,
+    pass    varchar(50),
+    name    varchar(20)
+);
+
+Q6:
+다음과 같은 Mysql 스키마를 하나 정의해 줘.
+table name : users
+필드정보
+    idx     자동증가, 프라이머리 키
+    id      텍스트, 유일
+    pass    비밀번호저장
+    name    사람이름 저장
+
+CREATE TABLE users (
+    idx INT AUTO_INCREMENT PRIMARY KEY, -- 자동증가 및 프라이머리 키
+    id VARCHAR(255) UNIQUE NOT NULL,   -- 텍스트, 유일한 값
+    pass VARCHAR(255) NOT NULL,        -- 비밀번호 저장
+    name VARCHAR(100) NOT NULL         -- 사람이름 저장
+);
+
 =====================================================
                     Day 3
 =====================================================
