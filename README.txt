@@ -87,7 +87,7 @@ ALTER DATABASE secure CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 drop table first;
 테이블을 다시 만들면 한글깨짐 해결됌
 
-
+사용하는 비밀번호의 안전성 검사
 https://www.security.org/how-secure-is-my-password/
 
 
