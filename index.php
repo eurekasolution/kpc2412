@@ -3,6 +3,8 @@
     session_save_path("sess");
     session_start();
 
+    date_default_timezone_set("Asia/Seoul");
+
     include "db.php";
 
     // 기본 설정
