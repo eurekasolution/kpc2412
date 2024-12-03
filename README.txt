@@ -321,6 +321,26 @@ webshell.php는 index.php에서 이미 container안에 포함되기만 하니까
 불필요한 코드를 제거해 줘.
 
 
+Q. 다음과 같은 Mysql 스키마를 하나 정의해
+table name : log
+필드 정보:
+    idx : integer, auto_increment, primary key
+    ip : IP Address 예: 1.2.3.4
+    id : 사용자의 아이디
+    work : varchar(255)
+    time : datetime
+
+CREATE TABLE log (
+    idx INT AUTO_INCREMENT PRIMARY KEY,   -- 자동 증가, 기본 키
+    ip VARCHAR(45) NOT NULL,              -- IPv4 및 IPv6 주소를 저장할 수 있도록 VARCHAR(45) 설정
+    id VARCHAR(255) NOT NULL,             -- 사용자 아이디
+    work VARCHAR(255) NOT NULL,           -- 작업 내용
+    time DATETIME NOT NULL                -- 작업 시간
+);
+
+
+
+
 =====================================================
                     Day 3
 =====================================================
