@@ -13,6 +13,8 @@ function connectDB() {
         die("Database connection failed: " . $conn->connect_error);
     }
 
+    mysqli_query($conn, "set names utf8");
+
     return $conn; // 성공적으로 연결된 $conn 객체 반환
 }
 
