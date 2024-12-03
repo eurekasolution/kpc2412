@@ -226,7 +226,7 @@ index.php?cmd=test 형태로 링크가 만들어지면 몸체에서는
 $cmd 값을 확인한 후 $cmd값이 없으면 include "init.php"; 하고
 $cmd가 있으면 include "$cmd.php"; 형태로 코드를 만들어 줘.
 
-
+javascript:alert(document.cookie);
 =====================================================
                     Day 3
 =====================================================
