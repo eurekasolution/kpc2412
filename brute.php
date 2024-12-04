@@ -14,8 +14,10 @@
             {
                 for($l = 0; $l < $size; $l++)
                 {
+                    $cnt ++;
+
                     $pass = $letters[$i] . $letters[$j] . $letters[$k] . $letters[$l];
-                    $sql = "select * from users where pass='$pass'";
+                    $sql = "select * from users where pass='$pass' ";
                     $result = mysqli_query($conn, $sql);
                     $data = mysqli_fetch_array($result);
                     if($data)
@@ -27,8 +29,10 @@
                             $data = mysqli_fetch_array($result);
                         }
 
-                        exit();
+                        // exit();
                     }
+                    if($cnt > 100000)
+                        exit();
                 }
             }
         }

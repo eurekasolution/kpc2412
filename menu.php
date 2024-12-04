@@ -18,6 +18,7 @@
                             <li><a class="dropdown-item" href="index.php?cmd=xss">XSS</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=board">게시판</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=brute">Brute Force</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=brute2">Brute Force2</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=crawling">Crawling</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=fake">Fake Data</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=webshell">Web Shell</a></li>
