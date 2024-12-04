@@ -360,15 +360,25 @@ OSI 7 Layer
 
 A Penguin Said That Nobody Drinks Pepsi
 
-
-
-
-
-
 =====================================================
                     Day 3
 =====================================================
 
+void print(char *ptr)
+{
+	char buf[100];
+	bzero(buf, sizeof(buf));
+	strcpy(buf, ptr);
+}
+
+// ./test Hello
+// ./test "hello world"
+
+int main(int argc, char **argv)
+{
+	print(argv[1]);
+	return 0;
+}
 
 =====================================================
                     Day 4

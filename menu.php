@@ -13,11 +13,13 @@
                             보안실습
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="securityDropdown">
-                            <li><a class="dropdown-item" href="index.php?cmd=login">로그인</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $_SERVER["PHP_SELF"] ?>?cmd=login">로그인</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=sql_injection">SQL Injection</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=xss">XSS</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=board">게시판</a></li>
-                            <li><a class="dropdown-item" href="index.php?cmd=brute_force">Brute Force</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=brute">Brute Force</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=crawling">Crawling</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=fake">Fake Data</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=webshell">Web Shell</a></li>
                         </ul>
                     </li>
