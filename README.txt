@@ -529,6 +529,43 @@ CREATE TABLE bbs (
     time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP -- 작성 시간, 기본값 현재 시간
 );
 
+
+Q:
+echo "<h2>" . ($idx ? "글 수정" : "글 쓰기") . "</h2>";
+    echo "<form method='post' action='index.php?cmd=board&bid=$bid&mode=dbwrite' enctype='multipart/form-data'>";
+    if ($idx) echo "<input type='hidden' name='idx' value='$idx'>";
+    echo "제목: <input type='text' name='title' value='$title'><br>";
+    echo "작성자: <input type='text' name='id' value='{$_SESSION['kpcid']}' readonly><br>";
+    echo "내용: <textarea name='html' rows='10' cols='50'>$html</textarea><br>";
+    echo "파일: <input type='file' name='file'><br>";
+    echo "<a href='index.php?cmd=board&bid=$bid&mode=list'><button type='button'>목록보기</button></a>";
+    echo "<button type='submit'>글등록</button>";
+    echo "</form>";
+
+
+이렇게 된 코드를 
+<div class="row">
+   <div class="col-2 colLine">왼쪽</div>
+   <div class="col colLine">오른쪽</div>
+</div>
+
+이와 같은 형태로 코드를 바꿔줘.
+모든 입력은 class에 form-control을 추가해
+
+
+
+글쓰기 연습
+
+스크립트 테스트
+<script>for(var i=1; i<=3; i++){ alert(i) }</script>
+
+
+<br>
+
+< : &lt;
+
+> : &gt;
+
 =====================================================
                     Day 4
 =====================================================

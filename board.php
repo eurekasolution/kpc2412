@@ -60,6 +60,8 @@ if ($mode === 'show' && $idx) {
     $row = mysqli_fetch_assoc($result);
     if (!$row) die('글을 찾을 수 없습니다.');
 
+    $row['html'] = nl2br($row['html']);
+
     echo "
     <div class='row'>
         <div class='col-2 colLine'>제목</div>
@@ -173,6 +175,17 @@ if ($mode === 'dbwrite' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
     $file = $_FILES['file']['name'] ?? null;
 
+    /*
+    $title = str_replace("<", "&lt;", $title);
+    $title = str_replace(">", "&gt;", $title);
+
+    $title = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+    $html = htmlspecialchars($html, ENT_QUOTES, 'UTF-8');;
+
+    $html = str_replace("<", "&lt;", $html);
+    $html = str_replace(">", "&gt;", $html);
+    */
+    
     // 파일 업로드 처리
     if ($file) {
         $targetDir = "uploads/";
@@ -184,10 +197,12 @@ if ($mode === 'dbwrite' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $idx = $_POST['idx'];
         $query = "UPDATE bbs SET title='$title', html='$html', file='$file' WHERE idx=$idx";
     } else { // 새 글
-        $query = "INSERT INTO bbs (bid, title, html, id, file) VALUES ($bid, '$title', '$html', '$id', '$file')";
+        $query = "INSERT INTO bbs (bid, title, html, id, file)
+                     VALUES ($bid, '$title', '$html', '$id', '$file')";
     }
-    mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
     echo "
+    
     <script>
         location.href='index.php?cmd=board&bid=$bid&mode=list';
     </script>
