@@ -24,6 +24,9 @@
                             <li><a class="dropdown-item" href="index.php?cmd=crawling">Crawling</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=fake">Fake Data</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=ftp">Web FTP</a></li>
+
+                            <li><a class="dropdown-item" href="index.php?cmd=chart">구글 차트</a></li>
+
                             <li><a class="dropdown-item" href="index.php?cmd=webshell">Web Shell</a></li>
                         </ul>
                     </li>
