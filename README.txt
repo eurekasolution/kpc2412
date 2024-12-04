@@ -391,7 +391,63 @@ users 테이블에 다음과 같이 쿼리를 해서 동일한 비밀번호를 �
 select * from users where pass='$pass' 
 이때 찾은 비밀번호와 같은 id와 pass를 모두 출력하고 종료해.
 
+Q:
+다음과 같은 코드를 응용해서 다른 코드를 만들고 싶어.
 
+<?php
+
+    $letters = "abcdefghij";
+    $size = strlen($letters);
+    echo "size = $size<br>";
+
+    $cnt = 0;
+
+    for($i = 0; $i < $size; $i++)
+    {
+        for($j = 0; $j < $size; $j++)
+        {
+            for($k = 0; $k < $size; $k++)
+            {
+                for($l = 0; $l < $size; $l++)
+                {
+                    $cnt ++;
+
+                    $pass = $letters[$i] . $letters[$j] . $letters[$k] . $letters[$l];
+                    $sql = "select * from users where pass='$pass' ";
+                    $result = mysqli_query($conn, $sql);
+                    $data = mysqli_fetch_array($result);
+                    if($data)
+                    { // find
+                        while($data)
+                        {
+                            $id = $data["id"];
+                            echo "id = $id, pass = $pass <br>";
+                            $data = mysqli_fetch_array($result);
+                        }
+
+                        // exit();
+                    }
+                    if($cnt > 100000)
+                        exit();
+                }
+            }
+        }
+    }
+
+?>
+
+이때, $cnt 가 없으면 0 이고,
+0 일때는 aaaa 라는 문자를 만들고,
+1 일때는 aaab 라는 문자를 만들고,
+2 일때는 aaac 라는 문자를 만든다.
+이와 같은 형태로 $cnt 값을 순차적으로 증가하는데
+
+index.php?cmd=brute2&cnt=1
+이렇게 GET방식으로 cnt가 결정되면 해당하는 문자인 (예: aaab)를 찾아서
+데이터베이스에서 검사를 해.
+
+cnt값을 증가시켜서 다음 링크로 이동을 해.
+setTimeout을 이용해서 1초마다 한번씩 호출하도록 변경해 줘.
 =====================================================
                     Day 4
 =====================================================
