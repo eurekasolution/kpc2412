@@ -1,8 +1,8 @@
 <?php
 
 // 온도와 습도 랜덤 값 생성
-$temp = mt_rand(3000, 3100) / 100; // 30.00 ~ 31.00
-$hum = mt_rand(5000, 5200) / 100;  // 50.00 ~ 52.00
+$temp = mt_rand(6000, 6100) / 100; // 30.00 ~ 31.00
+$hum = mt_rand(3000, 3200) / 100;  // 50.00 ~ 52.00
 
 // 데이터베이스에 삽입
 $query = "INSERT INTO sensor (temp, hum, time) VALUES ($temp, $hum, now())";
