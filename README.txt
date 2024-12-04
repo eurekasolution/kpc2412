@@ -492,6 +492,9 @@ CREATE TABLE bbs (
     time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP -- 작성 시간, 기본값 현재 시간
 );
 
+insert into bbs (bid, title, html, id, file, time) 
+    values ('1', '첫번째', 'first 내용', 'test', '', now());
+
 
 =====================================================
                     Day 4
