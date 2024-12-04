@@ -18,7 +18,7 @@
           legend: { position: 'bottom' }
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('chartchart'));
+        var chart = new google.visualization.LineChart(document.getElementById('kpcchart'));
 
         chart.draw(data, options);
       }
