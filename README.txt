@@ -496,6 +496,39 @@ insert into bbs (bid, title, html, id, file, time)
     values ('1', '첫번째', 'first 내용', 'test', '', now());
 
 
+Q:
+다음과 같은 board.php라는 파일을 만들어 줘.
+호출방법 : index.php?cmd=board&bid=1&mode=show&idx=3
+이때, cmd, bid는 필수
+bid는 정수인데, 1:자유게시판, 2: QnA게시판
+mode값이 없으면 기본값으로 mode = "list"로 결정
+글보기, 수정, 삭제할 때는 해당 게시글의 번호인 idx를 항상 포함
+
+mode의 종류 : list(글목록보기), show(게시글 보기), write(글쓰기화면)
+    dbwrite(게시글을 실제 DB저장), delete(게시글 DB에서 삭제)
+write는 글쓰기 기능도 있지만, 글 수정하기를 같이 수행
+  - 글 수정할 때, 글 쓰는 내용에 원본글을 가져와 텍스트 추가
+
+글목록 보기 : idx, title, 작성자, 작성일을 10개씩 보여주고,
+    10개 이상일 때는 화면 하단에 페이지별로 보기
+글목록 보기의 아래에는 "글쓰기"버튼을 배치,
+글쓰기 버튼을 누르면 mode ="write"로 이동
+
+글쓰기 : 제목, 작성자($_SESSION["kpcid"]), 글내용, 파일1개 첨부
+    하단에는 "목록보기", "글등록" 버튼을 추가
+
+게시판을 위한 데이터베이스 스키마는 다음과 같아.
+
+CREATE TABLE bbs (
+    idx INT AUTO_INCREMENT PRIMARY KEY,   -- 게시글의 키값, 자동 증가
+    bid TINYINT NOT NULL,                 -- 게시판의 종류 (1: 공지사항, 2: 자유게시판 등)
+    title VARCHAR(255) NOT NULL,          -- 게시글 제목
+    html MEDIUMTEXT NOT NULL,             -- 게시글 내용 (HTML 포맷 지원)
+    id VARCHAR(50) NOT NULL,              -- 회원 아이디
+    file VARCHAR(255),                    -- 파일 이름
+    time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP -- 작성 시간, 기본값 현재 시간
+);
+
 =====================================================
                     Day 4
 =====================================================
