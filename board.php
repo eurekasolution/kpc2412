@@ -1,15 +1,7 @@
 <?php
-include 'db.php'; // DB 연결
-session_start();
-
 // 필수 파라미터 확인
 $cmd = $_GET['cmd'] ?? null;
 $bid = $_GET['bid'] ?? null;
-
-// 기본 검증
-if ($cmd !== 'board' || !is_numeric($bid)) {
-    die('잘못된 요청입니다.');
-}
 
 // 게시판 종류 정의
 $boardNames = [
@@ -35,20 +27,29 @@ if ($mode === 'list') {
     $result = mysqli_query($conn, $query);
     
     echo "<h2>$boardName</h2>";
-    echo "<table border='1'>
-            <tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr>";
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>
-                <td>{$row['idx']}</td>
-                <td><a href='index.php?cmd=board&bid=$bid&mode=show&idx={$row['idx']}'>{$row['title']}</a></td>
-                <td>{$row['id']}</td>
-                <td>{$row['time']}</td>
-              </tr>";
+    echo "
+    <div class='row'>
+        <table class='table table-bordered'>
+            <tr>
+                <th class='col'>번호</th>
+                <th class='col-7'>제목</th>
+                <th class='col'>작성자</th>
+                <th class='col'>작성일</th>
+            </tr>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                        <td class='col'>{$row['idx']}</td>
+                        <td class='col-7'><a href='index.php?cmd=board&bid=$bid&mode=show&idx={$row['idx']}'>{$row['title']}</a></td>
+                        <td class='col'>{$row['id']}</td>
+                        <td class='col'>{$row['time']}</td>
+                    </tr>";
     }
-    echo "</table>";
+    echo "</table>
+    </div>
+    ";
 
     // 글쓰기 버튼
-    echo "<a href='index.php?cmd=board&bid=$bid&mode=write'><button>글쓰기</button></a>";
+    echo "<a href='index.php?cmd=board&bid=$bid&mode=write'><button class='btn btn-primary'>글쓰기</button></a>";
     exit;
 }
 
@@ -59,17 +60,40 @@ if ($mode === 'show' && $idx) {
     $row = mysqli_fetch_assoc($result);
     if (!$row) die('글을 찾을 수 없습니다.');
 
-    echo "<h2>{$row['title']}</h2>";
-    echo "<p>작성자: {$row['id']}</p>";
-    echo "<p>작성일: {$row['time']}</p>";
-    echo "<div>{$row['html']}</div>";
-    if ($row['file']) {
-        echo "<p>첨부파일: <a href='uploads/{$row['file']}' download>{$row['file']}</a></p>";
-    }
+    echo "
+    <div class='row'>
+        <div class='col-2 colLine'>제목</div>
+        <div class='col colLine'>{$row['title']}</div>
+    </div>
+    <div class='row'>
+        <div class='col-2 colLine'>작성자</div>
+        <div class='col colLine'>{$row['id']}</div>
+    </div>
+    <div class='row'>
+        <div class='col-2 colLine'>작성일</div>
+        <div class='col colLine'>{$row['time']}</div>
+    </div>
+    <div class='row'>
+        <div class='col colLine' style='height:300px; min-height:300px;'>{$row['html']}</div>
+    </div>
+    <div class='row'>
+        <div class='col-2 colLine'>첨부</div>
+        <div class='col colLine'>";  
+        if ($row['file']) {
+            echo "<p>첨부파일: <a href='uploads/{$row['file']}' download>{$row['file']}</a></p>";
+        }
+        echo "</div>
+    </div>
+    <div class='row'>
+        <div class='col colLine text-center'>
+            <a href='index.php?cmd=board&bid=$bid&mode=list'><button class='btn btn-primary'>목록보기</button></a> 
+            <a href='index.php?cmd=board&bid=$bid&mode=write&idx=$idx'><button  class='btn btn-primary'>수정하기</button></a>
+            <a href='index.php?cmd=board&bid=$bid&mode=delete&idx=$idx'><button  class='btn btn-primary'>삭제하기</button></a>
+        </div>
+    </div>
+    ";
 
-    echo "<a href='index.php?cmd=board&bid=$bid&mode=list'><button>목록보기</button></a>";
-    echo "<a href='index.php?cmd=board&bid=$bid&mode=write&idx=$idx'><button>수정하기</button></a>";
-    echo "<a href='index.php?cmd=board&bid=$bid&mode=delete&idx=$idx'><button>삭제하기</button></a>";
+ 
     exit;
 }
 
@@ -86,16 +110,59 @@ if ($mode === 'write') {
         $file = $row['file'];
     }
 
+    
     echo "<h2>" . ($idx ? "글 수정" : "글 쓰기") . "</h2>";
     echo "<form method='post' action='index.php?cmd=board&bid=$bid&mode=dbwrite' enctype='multipart/form-data'>";
-    if ($idx) echo "<input type='hidden' name='idx' value='$idx'>";
-    echo "제목: <input type='text' name='title' value='$title'><br>";
-    echo "작성자: <input type='text' name='id' value='{$_SESSION['kpcid']}' readonly><br>";
-    echo "내용: <textarea name='html' rows='10' cols='50'>$html</textarea><br>";
-    echo "파일: <input type='file' name='file'><br>";
-    echo "<a href='index.php?cmd=board&bid=$bid&mode=list'><button type='button'>목록보기</button></a>";
-    echo "<button type='submit'>글등록</button>";
+    
+    // 게시글 번호 (수정용)
+    if ($idx) {
+        echo "<input type='hidden' name='idx' value='$idx'>";
+    }
+    
+    // 제목 입력
+    echo "<div class='row mb-3'>";
+    echo "  <div class='col-2 colLine text-end'>제목</div>";
+    echo "  <div class='col colLine'>";
+    echo "      <input type='text' name='title' value='$title' class='form-control'>";
+    echo "  </div>";
+    echo "</div>";
+    
+    // 작성자 (읽기 전용)
+    echo "<div class='row mb-3'>";
+    echo "  <div class='col-2 colLine text-end'>작성자</div>";
+    echo "  <div class='col colLine'>";
+    echo "      <input type='text' name='id' value='{$_SESSION['kpcid']}' class='form-control' readonly>";
+    echo "  </div>";
+    echo "</div>";
+    
+    // 내용 입력
+    echo "<div class='row mb-3'>";
+    echo "  <div class='col-2 colLine text-end'>내용</div>";
+    echo "  <div class='col colLine'>";
+    echo "      <textarea name='html' rows='10' class='form-control'>$html</textarea>";
+    echo "  </div>";
+    echo "</div>";
+    
+    // 파일 첨부
+    echo "<div class='row mb-3'>";
+    echo "  <div class='col-2 colLine text-end'>파일</div>";
+    echo "  <div class='col colLine'>";
+    echo "      <input type='file' name='file' class='form-control'>";
+    echo "  </div>";
+    echo "</div>";
+    
+    // 버튼
+    echo "<div class='row'>";
+    echo "  <div class='col-2'></div>"; // 왼쪽 여백
+    echo "  <div class='col'>";
+    echo "      <a href='index.php?cmd=board&bid=$bid&mode=list' class='btn btn-secondary'>목록보기</a>";
+    echo "      <button type='submit' class='btn btn-primary'>글등록</button>";
+    echo "  </div>";
+    echo "</div>";
+    
     echo "</form>";
+  
+    
     exit;
 }
 
@@ -120,7 +187,12 @@ if ($mode === 'dbwrite' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $query = "INSERT INTO bbs (bid, title, html, id, file) VALUES ($bid, '$title', '$html', '$id', '$file')";
     }
     mysqli_query($conn, $query);
-    header("Location: index.php?cmd=board&bid=$bid&mode=list");
+    echo "
+    <script>
+        location.href='index.php?cmd=board&bid=$bid&mode=list';
+    </script>
+    ";
+
     exit;
 }
 

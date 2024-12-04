@@ -16,7 +16,9 @@
                             <li><a class="dropdown-item" href="<?php echo $_SERVER["PHP_SELF"] ?>?cmd=login">로그인</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=sql_injection">SQL Injection</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=xss">XSS</a></li>
-                            <li><a class="dropdown-item" href="index.php?cmd=board">게시판</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=board&bid=1">자유게시판</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=board&bid=2">QnA</a></li>
+
                             <li><a class="dropdown-item" href="index.php?cmd=brute">Brute Force</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=brute2">Brute Force2</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=crawling">Crawling</a></li>
