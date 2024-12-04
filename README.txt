@@ -448,6 +448,51 @@ index.php?cmd=brute2&cnt=1
 
 cnt값을 증가시켜서 다음 링크로 이동을 해.
 setTimeout을 이용해서 1초마다 한번씩 호출하도록 변경해 줘.
+
+index.php?cmd=board&bid=1&mode=write
+
+!$mode
+    $mode = "list"
+
+if($mode == "list")
+{
+
+} else if($mode == "write")
+{
+    // 글쓰기
+} else if($mode == "dbwrite")
+{
+    // 글쓰기 DB에 적용
+} else if($mode == "show")
+{
+    // 글내용보기
+} // 수정, 삭제, 댓글
+
+blob, text
+
+
+Mysql 스키마를 정의해 줘.
+
+table name : bbs
+idx : 게시글의 키값, 자동증가
+bid : 게시판의 종류, 예: 1 = 공지사항, 2 = 자유게시판
+title : 게시글의 제목
+html : mediumtext
+id : 회원의 아이디
+file : 파일의 이름 저장
+time : datetime, 작성시간
+
+CREATE TABLE bbs (
+    idx INT AUTO_INCREMENT PRIMARY KEY,   -- 게시글의 키값, 자동 증가
+    bid TINYINT NOT NULL,                 -- 게시판의 종류 (1: 공지사항, 2: 자유게시판 등)
+    title VARCHAR(255) NOT NULL,          -- 게시글 제목
+    html MEDIUMTEXT NOT NULL,             -- 게시글 내용 (HTML 포맷 지원)
+    id VARCHAR(50) NOT NULL,              -- 회원 아이디
+    file VARCHAR(255),                    -- 파일 이름
+    time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP -- 작성 시간, 기본값 현재 시간
+);
+
+
 =====================================================
                     Day 4
 =====================================================
