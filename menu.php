@@ -26,6 +26,9 @@
                             <li><a class="dropdown-item" href="index.php?cmd=ftp">Web FTP</a></li>
 
                             <li><a class="dropdown-item" href="index.php?cmd=chart">구글 차트</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=generator">생성기</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=monitor">모니터링</a></li>
+
 
                             <li><a class="dropdown-item" href="index.php?cmd=webshell">Web Shell</a></li>
                         </ul>

@@ -566,6 +566,23 @@ echo "<h2>" . ($idx ? "글 수정" : "글 쓰기") . "</h2>";
 
 > : &gt;
 
+
+Q: 
+
+다음과 같은 Mysql 스키마를 만들고 싶어.
+table name : sensor
+필드 정보는 다음과 같다.
+idx : 키값, 자동 증가
+temp : 온도저장, float
+hum : 습도 저장, float
+time : datetime
+
+CREATE TABLE sensor (
+    idx INT AUTO_INCREMENT PRIMARY KEY,   -- 키값, 자동 증가
+    temp FLOAT NOT NULL,                  -- 온도 저장
+    hum FLOAT NOT NULL,                   -- 습도 저장
+    time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP -- 시간, 기본값 현재 시간
+);
 =====================================================
                     Day 4
 =====================================================
