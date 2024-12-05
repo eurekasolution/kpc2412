@@ -40,6 +40,7 @@
                             <li><a class="dropdown-item" href="index.php?cmd=generator">생성기</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=monitor">모니터링</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=monitor2">AJAX 모니터링</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=network">인물관계망</a></li>
 
                         </ul>
                     </li>
