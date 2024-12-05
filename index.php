@@ -53,10 +53,16 @@
         else
             $userid = "";
 
-        $sql = "insert into log (ip, id, work, time) 
-                    values ('$ip', '$userid', '$q', now())";
-        $result = mysqli_query($conn, $sql);
-
+        if($cmd == "log" or $cmd == "log2")
+        {
+            // 로그데이터 확인을 하는 것은
+            // 기록에 남기지 않는다.
+        }else
+        {
+            $sql = "insert into log (ip, id, work, time) 
+                        values ('$ip', '$userid', '$q', now())";
+            $result = mysqli_query($conn, $sql);
+        }
 
     ?>
         <div class="container mt-1">
