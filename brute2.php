@@ -35,7 +35,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 $nextCnt = $cnt + 1;
 
 // 1초 후에 다음 링크로 이동
-$sleep = rand(500, 3000);
+$sleep = rand(10, 50);
 echo "
 sleep = $sleep <br>
 <script>
