@@ -637,6 +637,100 @@ localStoage에 이 값을 30일간 저장하고,
     <h1>Hello<b>Bold</b></h1>
 </body>
 
+
+Q:
+<div class="row" id="display">
+
+</div>
+
+    <script>
+
+        var counter = 0;
+
+        function ajaxMonitor()
+        {
+            // ajaxMonitor.php
+            counter ++;
+            var param = "id=test&pw=1234&counter="+ counter;
+
+            $.ajax({
+                url: "ajaxMonitor.php",
+                type: "POST",
+                cache: false,
+                data: param,
+                success: function(data)
+                {
+                    //alert(data);
+                    $("#display").html(data);
+                }
+            });
+        }
+
+
+
+        // 3초마다 새로고침
+        setTimeout(function() {
+            ajaxMonitor();
+        }, 3000);
+    </script>
+
+이 코드가 왜 3초마다 ajaxMonitor()함수를 호출하지 않지?
+
+Q:
+
+다음과 같이 로그인 입력하는 부분이 있어.
+<form method="post" action="index.php?cmd=login" onSubmit="return checkError()">
+<div class="row">
+    <div class="col-4 colLine"></div>
+    <div class="col-1 text-end colLine">ID <input type="checkbox" id="saveid"> </div>
+    <div class="col colLine">
+        <input type="text" class="form-control" name="id" id="id" placeholder="아이디입력">
+    </div>
+    <div class="col-1 text-end colLine">PW <input type="checkbox" id="savepass"></div>
+    <div class="col colLine">
+        <input type="password" class="form-control" name="pass" id="pass" placeholder="비번입력">
+    </div>
+    <div class="col colLine text-center">
+        <button type="submit" class="btn btn-primary form-control">로그인</button>
+    </div>
+</div>
+</form>
+
+이때, saveid, savepass 선택되는 경우, 
+localStoage에 이 값을 30일간 저장하고,
+저장된 값이 있는 경우에는 id, pass의  입력값을 자동으로 넣어 주도록
+코드를 작성해.
+
+Q: 
+checkid, checkpass가 체크되었는데, 왜 아이디와 비밀번호를 로컬스토리지에 있는 값으로 못 가져오지? 화면 입력값을 저장된 값으로 넣어주고 싶어.
+
+Q:
+
+checkid, checkpass에 따라 id, pass를 각각 저장할지 판단하고 싶어.
+값은 잘 가져오고 있어. 그런데 checkid를 체크하고, checkpass는 체크하지 않았을 때도 두 개가 다 표시되고 있어.
+
+Q:
+expiration 이 1735955044356와 같이 저장되는데
+이 값을 YYYY-MM-DD hh:mm:ss 형태로 바꿔줘
+
+Q:
+로컬 스토리지에 저장되는 값을 포맷에 맞춰달라는 말이야
+
+Q:
+포맷에 맞게 잘 처리가 되는데, checkid, checkpass가 정상적으로 동작하지 않아
+
+Q:
+
+그런데, id와 pass가 로컬스토리지에 Raw 데이터가 저장되니까, 
+이값을 암호화 하고(예: base64) 화면의 입력창에 가져올때는 복호화해서 원 데이터를 입력되도록 하고 싶어.
+
+Q:
+
+이번에는 submit을 해서 최종적으로 서버에 전달되기 전에 다시 암호화해서
+패킷을 캡쳐했을 때도 암호화된 데이터로 보여주고 싶어.
+이때는 pass만 base64로 바꿔서 전송하고 싶어.
+
+
 =====================================================
                     Day 5
 =====================================================
