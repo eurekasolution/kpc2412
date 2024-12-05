@@ -92,29 +92,28 @@
             </form>
 
             <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    // 저장된 ID와 PW를 가져옴
+                document.addEventListener("DOMContentLoaded", function () {
+                    // 저장된 값과 체크박스 상태 가져오기
                     const savedId = localStorage.getItem("savedId");
                     const savedPass = localStorage.getItem("savedPass");
-                    const expiration = localStorage.getItem("expiration");
+                    const expirationId = localStorage.getItem("expirationId");
+                    const expirationPass = localStorage.getItem("expirationPass");
 
-                    if (savedId && savedPass && expiration) {
-                        const now = new Date().getTime();
+                    const now = new Date().getTime();
 
-                        // 저장된 값이 유효기간 내에 있으면 입력 필드에 자동으로 채움
-                        if (now < parseInt(expiration)) {
-                            document.getElementById("id").value = savedId;
-                            document.getElementById("pass").value = savedPass;
-                            document.getElementById("saveid").checked = true;
-                            document.getElementById("savepass").checked = true;
-                        } else {
-                            // 유효기간이 지난 데이터는 삭제
-                            localStorage.removeItem("savedId");
-                            localStorage.removeItem("savedPass");
-                            localStorage.removeItem("expiration");
-                        }
+                    // ID와 유효기간이 유효하면 값 설정 및 체크박스 체크
+                    if (savedId && expirationId && now < new Date(expirationId).getTime()) {
+                        document.getElementById("id").value = savedId;
+                        document.getElementById("saveid").checked = true;
+                    }
+
+                    // PW와 유효기간이 유효하면 값 설정 및 체크박스 체크
+                    if (savedPass && expirationPass && now < new Date(expirationPass).getTime()) {
+                        document.getElementById("pass").value = savedPass;
+                        document.getElementById("savepass").checked = true;
                     }
                 });
+
 
                 function checkError()
                 {
@@ -136,25 +135,27 @@
                     const idValue = document.getElementById("id").value;
                     const passValue = document.getElementById("pass").value;
 
-                    if (saveIdChecked || savePassChecked) {
-                        const expirationDate = new Date();
-                        expirationDate.setDate(expirationDate.getDate() + 30); // 30일 후
-                        const expirationTime = expirationDate.getTime();
+                    // 30일 후 유효기간 설정
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 30);
+                    const formattedExpiration = expirationDate.toISOString().slice(0, 19).replace('T', ' ');
 
-                        if (saveIdChecked) {
-                            localStorage.setItem("savedId", idValue);
-                        }
-                        if (savePassChecked) {
-                            localStorage.setItem("savedPass", passValue);
-                        }
-
-                        // 유효기간 저장
-                        localStorage.setItem("expiration", expirationTime);
+                    // ID 저장 여부 확인
+                    if (saveIdChecked) {
+                        localStorage.setItem("savedId", idValue);
+                        localStorage.setItem("expirationId", formattedExpiration);
                     } else {
-                        // 체크박스가 선택되지 않으면 저장된 값을 삭제
                         localStorage.removeItem("savedId");
+                        localStorage.removeItem("expirationId");
+                    }
+
+                    // PW 저장 여부 확인
+                    if (savePassChecked) {
+                        localStorage.setItem("savedPass", passValue);
+                        localStorage.setItem("expirationPass", formattedExpiration);
+                    } else {
                         localStorage.removeItem("savedPass");
-                        localStorage.removeItem("expiration");
+                        localStorage.removeItem("expirationPass");
                     }
 
                     
