@@ -901,6 +901,19 @@ source - target : 관계
 cacti
 
 
+DB 접속 
+    mysql -u 사용자 DB이름 -p
+
+    mysql -u secure secure -p
+
+DB Backup
+
+    mysqldump -u secure secure -p > 2024-12-05-1600.db.sql
+
+    mysql -u secure secure -p 로 접속 후
+
+    source 2024-12-05-1600.db.sql
+    이렇게 하면 백업파일로 자동 복구 됨.
 =====================================================
                     Day 5
 =====================================================
