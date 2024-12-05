@@ -25,10 +25,7 @@
                             <li><a class="dropdown-item" href="index.php?cmd=fake">Fake Data</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=ftp">Web FTP</a></li>
 
-                            <li><a class="dropdown-item" href="index.php?cmd=chart">구글 차트</a></li>
-                            <li><a class="dropdown-item" href="index.php?cmd=generator">생성기</a></li>
-                            <li><a class="dropdown-item" href="index.php?cmd=monitor">모니터링</a></li>
-
+                            
 
                             <li><a class="dropdown-item" href="index.php?cmd=webshell">Web Shell</a></li>
                         </ul>
@@ -36,11 +33,14 @@
                     <!-- 메뉴2 Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="menu2Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            메뉴2
+                            보안 실습
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="menu2Dropdown">
-                            <li><a class="dropdown-item" href="index.php?cmd=menu2_1">메뉴 2-1</a></li>
-                            <li><a class="dropdown-item" href="index.php?cmd=menu2_2">메뉴 2-2</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=chart">구글 차트</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=generator">생성기</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=monitor">모니터링</a></li>
+                            <li><a class="dropdown-item" href="index.php?cmd=monitor2">AJAX 모니터링</a></li>
+
                         </ul>
                     </li>
                     <!-- 메뉴3 Dropdown -->
