@@ -92,37 +92,27 @@
             </form>
 
             <script>
-                // Base64 인코딩 및 디코딩 함수
-                function encodeBase64(input) {
-                    return btoa(unescape(encodeURIComponent(input)));
-                }
-
-                function decodeBase64(input) {
-                    return decodeURIComponent(escape(atob(input)));
-                }
-
-
                 document.addEventListener("DOMContentLoaded", function () {
-                // 저장된 값과 체크박스 상태 가져오기
-                const encodedId = localStorage.getItem("savedId");
-                const encodedPass = localStorage.getItem("savedPass");
-                const expirationId = localStorage.getItem("expirationId");
-                const expirationPass = localStorage.getItem("expirationPass");
+                    // 저장된 값과 체크박스 상태 가져오기
+                    const savedId = localStorage.getItem("savedId");
+                    const savedPass = localStorage.getItem("savedPass");
+                    const expirationId = localStorage.getItem("expirationId");
+                    const expirationPass = localStorage.getItem("expirationPass");
 
-                const now = new Date().getTime();
+                    const now = new Date().getTime();
 
-                // ID와 유효기간이 유효하면 값 설정 및 체크박스 체크
-                if (encodedId && expirationId && now < new Date(expirationId).getTime()) {
-                    document.getElementById("id").value = decodeBase64(encodedId);
-                    document.getElementById("saveid").checked = true;
-                }
+                    // ID와 유효기간이 유효하면 값 설정 및 체크박스 체크
+                    if (savedId && expirationId && now < new Date(expirationId).getTime()) {
+                        document.getElementById("id").value = savedId;
+                        document.getElementById("saveid").checked = true;
+                    }
 
-                // PW와 유효기간이 유효하면 값 설정 및 체크박스 체크
-                if (encodedPass && expirationPass && now < new Date(expirationPass).getTime()) {
-                    document.getElementById("pass").value = decodeBase64(encodedPass);
-                    document.getElementById("savepass").checked = true;
-                }
-            });
+                    // PW와 유효기간이 유효하면 값 설정 및 체크박스 체크
+                    if (savedPass && expirationPass && now < new Date(expirationPass).getTime()) {
+                        document.getElementById("pass").value = savedPass;
+                        document.getElementById("savepass").checked = true;
+                    }
+                });
 
 
                 function checkError()
@@ -152,7 +142,7 @@
 
                     // ID 저장 여부 확인
                     if (saveIdChecked) {
-                        localStorage.setItem("savedId", encodeBase64(idValue)); // Base64 인코딩 후 저장
+                        localStorage.setItem("savedId", idValue);
                         localStorage.setItem("expirationId", formattedExpiration);
                     } else {
                         localStorage.removeItem("savedId");
@@ -161,12 +151,13 @@
 
                     // PW 저장 여부 확인
                     if (savePassChecked) {
-                        localStorage.setItem("savedPass", encodeBase64(passValue)); // Base64 인코딩 후 저장
+                        localStorage.setItem("savedPass", passValue);
                         localStorage.setItem("expirationPass", formattedExpiration);
                     } else {
                         localStorage.removeItem("savedPass");
                         localStorage.removeItem("expirationPass");
                     }
+
                     
                 }
             </script>
