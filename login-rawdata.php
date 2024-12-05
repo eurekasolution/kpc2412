@@ -1,9 +1,6 @@
 <?php
     $id = $_POST["id"];
-    // 받은 비번을 복호화
-    $pass = base64_decode($_POST["pass"]);
-
-    echo "pass = $pass <br>";
+    $pass = $_POST["pass"];
 
     $sql = "select * from users where id='$id' and pass='$pass'";
     //                                        ' or 2>1 limit 2, 1 -- 
@@ -24,7 +21,7 @@
     echo "
     <script>
         alert('$msg');
-        //location.href='index.php';
+        location.href='index.php';
     </script>
     ";
 ?>

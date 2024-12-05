@@ -730,6 +730,42 @@ Q:
 패킷을 캡쳐했을 때도 암호화된 데이터로 보여주고 싶어.
 이때는 pass만 base64로 바꿔서 전송하고 싶어.
 
+Q: 
+이렇게 base64로 암호화한 pass값이 서버전달되면 로그인처리를 다음과 같이 해.
+
+<?php
+    $id = $_POST["id"];
+    $pass = $_POST["pass"];
+
+    echo "pass = $pass <br>";
+
+    $sql = "select * from users where id='$id' and pass='$pass'";
+    //                                        ' or 2>1 limit 2, 1 -- 
+    $result = mysqli_query($conn, $sql);
+    $data = mysqli_fetch_array($result);
+
+    //if($id == "test" and $pass=="1111")
+    if($data)
+    {
+        $_SESSION["kpcid"] = $id;
+        $_SESSION["kpcname"] = $data["name"];
+        $msg = "$data[name]"."님 반갑습니다."; 
+    }else
+    {
+        $msg = "아이디와 비밀번호를 확인하세요.";
+    }
+
+    echo "
+    <script>
+        alert('$msg');
+        //location.href='index.php';
+    </script>
+    ";
+?>
+
+이를 수정해서 복호화된 값으로 비교를 하도록 코드를 변경해 줘.
+
+
 
 =====================================================
                     Day 5

@@ -168,7 +168,7 @@
                         localStorage.removeItem("expirationPass");
                     }
                     
-                    document.getElementById('id').value = encodeBase64(idValue); 
+                    document.getElementById('pass').value = encodeBase64(passValue); 
                 }
             </script>
             <?php
