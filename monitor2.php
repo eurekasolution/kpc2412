@@ -25,7 +25,7 @@
             });
         }
 
-
+        ajaxMonitor();
 
         // 3초마다 새로고침
         setInterval(function() {

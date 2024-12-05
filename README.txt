@@ -607,6 +607,35 @@ Q. 이번에는 monitor.php 파일을 만들고 싶은데,
 =====================================================
                     Day 4
 =====================================================
+Q:
+다음과 같이 로그인 입력하는 부분이 있어.
+<form method="post" action="index.php?cmd=login" onSubmit="return checkError()">
+<div class="row">
+    <div class="col-4 colLine"></div>
+    <div class="col-1 text-end colLine">ID <input type="checkbox" id="saveid"> </div>
+    <div class="col colLine">
+        <input type="text" class="form-control" name="id" id="id" placeholder="아이디입력">
+    </div>
+    <div class="col-1 text-end colLine">PW <input type="checkbox" id="savepass"></div>
+    <div class="col colLine">
+        <input type="password" class="form-control" name="pass" id="pass" placeholder="비번입력">
+    </div>
+    <div class="col colLine text-center">
+        <button type="submit" class="btn btn-primary form-control">로그인</button>
+    </div>
+</div>
+</form>
+
+이때, saveid, savepass 선택되는 경우, 
+localStoage에 이 값을 30일간 저장하고,
+저장된 값이 있는 경우에는 id, pass의  입력값을 자동으로 넣어 주도록
+코드를 작성해.
+
+
+
+<body>
+    <h1>Hello<b>Bold</b></h1>
+</body>
 
 =====================================================
                     Day 5

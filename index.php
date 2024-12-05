@@ -73,7 +73,49 @@
         }else
         {
             ?>
+
+            <form method="post" action="index.php?cmd=login" onSubmit="return checkError()">
+            <div class="row">
+                <div class="col-4 colLine"></div>
+                <div class="col-1 text-end colLine">ID <input type="checkbox" id="saveid"> </div>
+                <div class="col colLine">
+                    <input type="text" class="form-control" name="id" id="id" placeholder="아이디입력">
+                </div>
+                <div class="col-1 text-end colLine">PW <input type="checkbox" id="savepass"></div>
+                <div class="col colLine">
+                    <input type="password" class="form-control" name="pass" id="pass" placeholder="비번입력">
+                </div>
+                <div class="col colLine text-center">
+                    <button type="submit" class="btn btn-primary form-control">로그인</button>
+                </div>
+            </div>
+            </form>
+
             <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    // 저장된 ID와 PW를 가져옴
+                    const savedId = localStorage.getItem("savedId");
+                    const savedPass = localStorage.getItem("savedPass");
+                    const expiration = localStorage.getItem("expiration");
+
+                    if (savedId && savedPass && expiration) {
+                        const now = new Date().getTime();
+
+                        // 저장된 값이 유효기간 내에 있으면 입력 필드에 자동으로 채움
+                        if (now < parseInt(expiration)) {
+                            document.getElementById("id").value = savedId;
+                            document.getElementById("pass").value = savedPass;
+                            document.getElementById("saveid").checked = true;
+                            document.getElementById("savepass").checked = true;
+                        } else {
+                            // 유효기간이 지난 데이터는 삭제
+                            localStorage.removeItem("savedId");
+                            localStorage.removeItem("savedPass");
+                            localStorage.removeItem("expiration");
+                        }
+                    }
+                });
+
                 function checkError()
                 {
                     //var id = document.getElementById('id');
@@ -89,25 +131,35 @@
                     //    alert('특수문자는 안돼!!');
                     //    return false;
                     //}
+                    const saveIdChecked = document.getElementById("saveid").checked;
+                    const savePassChecked = document.getElementById("savepass").checked;
+                    const idValue = document.getElementById("id").value;
+                    const passValue = document.getElementById("pass").value;
+
+                    if (saveIdChecked || savePassChecked) {
+                        const expirationDate = new Date();
+                        expirationDate.setDate(expirationDate.getDate() + 30); // 30일 후
+                        const expirationTime = expirationDate.getTime();
+
+                        if (saveIdChecked) {
+                            localStorage.setItem("savedId", idValue);
+                        }
+                        if (savePassChecked) {
+                            localStorage.setItem("savedPass", passValue);
+                        }
+
+                        // 유효기간 저장
+                        localStorage.setItem("expiration", expirationTime);
+                    } else {
+                        // 체크박스가 선택되지 않으면 저장된 값을 삭제
+                        localStorage.removeItem("savedId");
+                        localStorage.removeItem("savedPass");
+                        localStorage.removeItem("expiration");
+                    }
+
                     
                 }
             </script>
-            <form method="post" action="index.php?cmd=login" onSubmit="return checkError()">
-            <div class="row">
-                <div class="col-4 colLine"></div>
-                <div class="col-1 text-end colLine">ID</div>
-                <div class="col colLine">
-                    <input type="text" class="form-control" name="id" id="id" placeholder="아이디입력">
-                </div>
-                <div class="col-1 text-end colLine">PW</div>
-                <div class="col colLine">
-                    <input type="password" class="form-control" name="pass" id="pass" placeholder="비번입력">
-                </div>
-                <div class="col colLine text-center">
-                    <button type="submit" class="btn btn-primary form-control">로그인</button>
-                </div>
-            </div>
-            </form>
             <?php
         }
     ?>
