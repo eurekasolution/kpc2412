@@ -23,4 +23,28 @@
         </div>
     </div>
 <?php
+    $split = explode("<!-- 타이틀 -->", $response);
+    $count = count($split);
+    echo "count = $count<br>";
+
+    if($count <3)
+        exit();
+
+    for($i=1; $i<=$count; $i++)
+    {
+        if(isset($split[$i]))
+            $split2 = explode('<span class="title">', $split[$i]);
+        if(isset($split2[1]))
+            $split3 = explode('</span>', $split2[1]);
+        echo "$split3[0]<br>";
+    }
+
+    $nextPage = $page + 1;
 ?>
+
+<script>
+    // 3초마다 새로고침
+    setTimeout(function() {
+        //location.href='index.php?cmd=crawling&page=<?php echo $nextPage?>'
+    }, 3000);
+</script>
