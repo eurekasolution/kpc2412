@@ -47,6 +47,22 @@ DB접속
 
 localhost/phpmyadmin
 
+여기에 접속해 다음과 같은 방법으로 사용자 계정을 만든다.
+id: secure
+db: secure
+pass: 1111
+
+1. 왼쪽 트리의 "새로운" 클릭
+2. 오른쪽의 "사용자 계정"을 클릭
+3. 화면 중간의 "사용자 추가" 클릭
+4. 사용자명 : secure
+5. 암호 : 1111
+6. 재입력 : 1111
+7. Database for user account의 두 체크박스 선택
+8.전체적 권한의 "모두 체크"를 체크한 후 실행버튼
+
+C:\xampp\mysql\data 이폴더를 파이널 버전의 data 폴더내용으로 덮어쓰기
+
 Q1 :
 다음 조건을 만족하는 mysql 스키마를 하나 만들어 줘.
 table name : first

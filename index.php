@@ -6,6 +6,7 @@
     date_default_timezone_set("Asia/Seoul");
 
     include "db.php";
+    include "config.php";
 
     // 기본 설정
     $cmd = isset($_GET['cmd']) ? $_GET['cmd'] : 'init';

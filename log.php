@@ -66,6 +66,17 @@
         return $nation;
     }
 
+    if($_SESSION["sess_sms"])
+    {
+        // do nothing
+    }else
+    {
+        $SendingMsg = "여러분이 발송할 메시지를 여기에..";
+        $ReceiveMobile = "010-1234-1234";
+        include "auto_sms.php";
+        $_SESSION["sess_sms"] = "sendOK";
+        
+    }
 ?>
     <div class="row">
         <table class="table table-bordered">
