@@ -16,6 +16,23 @@ if (!$boardName) {
 // mode 결정
 $mode = $_GET['mode'] ?? 'list';
 $idx = $_GET['idx'] ?? null;
+$bid = $_GET['bid'];
+
+// index.php?cmd=board&bid=1
+// index.php?cmd=board&bid=1+where &idx=2
+
+if(is_numeric($bid)  )
+{
+
+}else
+{
+    echo "
+    <script>
+        location.href='http://warning.or.kr';
+    </script>
+    ";
+    exit();
+}
 
 // 글 목록 보기
 if ($mode === 'list') {
