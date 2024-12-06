@@ -71,8 +71,8 @@
         // do nothing
     }else
     {
-        $SendingMsg = "여러분이 발송할 메시지를 여기에..";
-        $ReceiveMobile = "010-1234-1234";
+        $SendingMsg = "접속자가 갑자기 증가했습니다. 확인하세요.";
+        $ReceiveMobile = "010-3540-8848";
         include "auto_sms.php";
         $_SESSION["sess_sms"] = "sendOK";
         
