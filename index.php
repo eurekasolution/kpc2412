@@ -49,6 +49,7 @@
         //echo "ip = $ip<br>";
         //echo "q = $q<br>";
 
+        
         if(isset($_SESSION["kpcid"]))
             $userid = $_SESSION["kpcid"];
         else
@@ -64,6 +65,21 @@
                         values ('$ip', '$userid', '$q', now())";
             $result = mysqli_query($conn, $sql);
         }
+
+        $sql = "select * from black where ip='$ip' ";
+        $result = mysqli_query($conn, $sql);
+        $data = mysqli_fetch_array($result);
+
+        if($data)
+        {
+            // blacklist
+            $sql = "update black set num = num + 1 where ip='$ip' ";
+            $result = mysqli_query($conn, $sql);
+        }else
+        {
+            // 허용되는 IP주소에서의 접속
+        }
+
 
     ?>
         <div class="container mt-1" >

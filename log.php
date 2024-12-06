@@ -140,8 +140,10 @@
                     $bData = mysqli_fetch_array($bResult);
 
                     if($bData)
-                        $printButton = "<button type='button' class='btn btn-danger btn-sm' onClick=\"blackControl('$data[ip]')\">해제</button>";
-                    else
+                    {
+                        $count = $bData["num"];
+                        $printButton = "<button type='button' class='btn btn-danger btn-sm' onClick=\"blackControl('$data[ip]')\">해제 $count</button>";
+                    }else
                         $printButton = "<button type='button' class='btn btn-success btn-sm' onClick=\"blackControl('$data[ip]')\">차단</button>";
                     
                     echo"
