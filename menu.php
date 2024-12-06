@@ -45,7 +45,7 @@
                             <li><a class="dropdown-item" href="index.php?cmd=log">로그</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=log2">로그 그래프</a></li>
                             <li><a class="dropdown-item" href="index.php?cmd=webftp">웹 탐색기</a></li>
-
+                            <li><a class="dropdown-item" href="index.php?cmd=editor">에디터</a></li>
                         </ul>
                     </li>
                     <!-- 메뉴3 Dropdown -->
