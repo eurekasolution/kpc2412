@@ -30,7 +30,7 @@
 </div>
 <div class="row">
     <div class="col colLine">
-        <div id="editor" contenteditable="true" style="width:100%; height:300px; border:3px solid #FF0000; padding:5px;" class="rounded">동해물과 백두산이 마르고 닳도록 하나님이 보우하사 우리나라 만세
+        <div id="editor" contenteditable="true" style="width:100%; height:300px; border:1px solid #888888; padding:5px;" class="rounded">동해물과 백두산이 마르고 닳도록 하나님이 보우하사 우리나라 만세
         </div>
     </div>
 </div>

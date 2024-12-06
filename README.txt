@@ -920,3 +920,7 @@ DB Backup
 
 WYSIWYG : What You See Is What You Get
 
+editor.php 에서 만들때는  구글검색 : javascript execCommand
+div 속성을 contenteditable을 true로 하는 것이 가장 중요
+
+cURL : Client URL
