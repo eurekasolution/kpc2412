@@ -87,6 +87,7 @@
                 <td>ID</td>
                 <td>시간</td>
                 <td>국가</td>
+                <td>비고</td>
             </tr>
             <?php
                 while($data)
@@ -101,6 +102,7 @@
                         <td>$data[id]</td>
                         <td>$data[time]</td>
                         <td>$nationalFlag</td>
+                        <td>비고</td>
                     </tr>";
                     $data = mysqli_fetch_array($result);
                 }

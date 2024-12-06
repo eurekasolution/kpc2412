@@ -954,3 +954,10 @@ http://naver.me/GxNgScqA
 		https://www.youtube.com/watch?v=CmZqNxQ7Vjo
 	스티브잡스 아이판 미니 출시 발표
 		https://www.youtube.com/watch?v=kSZqaS8g5GI
+
+
+create table black (
+    idx     integer auto_increment primary key,
+    ip      char(20),
+    num     integer default '0'
+);

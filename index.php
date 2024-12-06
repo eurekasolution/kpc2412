@@ -66,7 +66,7 @@
         }
 
     ?>
-        <div class="container mt-1">
+        <div class="container mt-1" >
     <?php
         if(isset($_SESSION["kpcid"]))
         {
@@ -188,6 +188,14 @@
     <!-- Main Content -->
 
         <?php include $fileToInclude; ?>
+
+        <div class="row" id="footer">
+            <div class="col bg-secondary">
+                사이트 정보 : 웹 취약점 분석과 시큐어코딩<br>
+                정보보호책임자 : 홍길동<br>
+                관리자연락처 : 010-1111-1111
+            </div>
+        </div>
     </div> <!-- container -->
 </body>
 </html>
