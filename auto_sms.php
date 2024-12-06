@@ -8,8 +8,8 @@
 
      $sms['rphone'] = base64_encode($ReceiveMobile); // 010-1234-5678
      $sms['sphone1'] = base64_encode("010");
-     $sms['sphone2'] = base64_encode("3540");
-     $sms['sphone3'] = base64_encode("8848");
+     $sms['sphone2'] = base64_encode("1111"); // 인증된 전송 번호
+     $sms['sphone3'] = base64_encode("1111"); // 인증된 전송 번호 (예: 강의자 전화번호)
 
 
      if(!isset($_POST['rdate']))
