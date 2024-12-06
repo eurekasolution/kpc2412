@@ -927,3 +927,14 @@ cURL : Client URL
 
 Q: 
 ip주소를 보고 GPS 정보를 얻어와 구글지도 등에 표시하는 방법을 PHP로 알려줘.
+
+http://naver.me/GxNgScqA
+
+14강에.. 카카오지도
+
+	스티브잡스 아이폰 출시 발표
+		https://www.youtube.com/watch?v=DIKbwNJpP9I&t=80s
+	스티브잡스 맥북 에어 출시 발표
+		https://www.youtube.com/watch?v=CmZqNxQ7Vjo
+	스티브잡스 아이판 미니 출시 발표
+		https://www.youtube.com/watch?v=kSZqaS8g5GI
