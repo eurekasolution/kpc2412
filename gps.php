@@ -43,6 +43,10 @@
 
             echo "
             <div class='row'>
+                <div class='col-2 colLine'>IP</div>
+                <div class='col colLine'>$ip</div>
+            </div>
+            <div class='row'>
                 <div class='col-2 colLine'>위/경도</div>
                 <div class='col colLine'>위도: $latitude, 경도: $longitude</div>
             </div>
