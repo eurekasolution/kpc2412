@@ -924,3 +924,6 @@ editor.php 에서 만들때는  구글검색 : javascript execCommand
 div 속성을 contenteditable을 true로 하는 것이 가장 중요
 
 cURL : Client URL
+
+Q: 
+ip주소를 보고 GPS 정보를 얻어와 구글지도 등에 표시하는 방법을 PHP로 알려줘.
